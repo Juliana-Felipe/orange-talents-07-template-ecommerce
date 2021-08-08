@@ -2,10 +2,7 @@ package br.com.zupacademy.mercadolivre.cadastro;
 
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -23,14 +20,18 @@ public class Cadastro {
 
     @Email
     @NotBlank
+    @Column(unique = true)
     private String login;
 
     @Length(min = 6)
     @NotBlank
     private String senhaCriptografada;
 
-    public Cadastro(String login,@Valid SenhaLimpa senhaLimpa) {
+    public Cadastro( @Email @NotBlank String login,@Valid SenhaLimpa senhaLimpa) {
         this.login = login;
         this.senhaCriptografada = senhaLimpa.encoda();
+    }
+    @Deprecated
+    public Cadastro() {
     }
 }
