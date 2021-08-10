@@ -1,6 +1,6 @@
 package br.com.zupacademy.mercadolivre.categoria;
 
-import br.com.zupacademy.mercadolivre.config.UniqueValue;
+import br.com.zupacademy.mercadolivre.config.validacao.UniqueValue;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 

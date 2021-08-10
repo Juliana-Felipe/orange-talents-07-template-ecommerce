@@ -1,29 +1,29 @@
-package br.com.zupacademy.mercadolivre.cadastro;
+package br.com.zupacademy.mercadolivre.usuario;
 
-import br.com.zupacademy.mercadolivre.config.UniqueValue;
+import br.com.zupacademy.mercadolivre.config.validacao.UniqueValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-public class CadastroRequest {
+public class UsuarioRequest {
     @NotBlank
     @Email
-    @UniqueValue(fieldName = "login", domainClass = Cadastro.class)
+    @UniqueValue(fieldName = "login", domainClass = Usuario.class)
     private String login;
     @NotBlank
     @Length(min = 6)
     private String senhaLimpa;
 
     @JsonCreator
-    public CadastroRequest(String login, String senhaLimpa) {
+    public UsuarioRequest(String login, String senhaLimpa) {
         this.login = login;
         this.senhaLimpa = senhaLimpa;
     }
 
-    public Cadastro converte() {
+    public Usuario converte() {
 
-        return new Cadastro(login, new SenhaLimpa(senhaLimpa));
+        return new Usuario(login, new SenhaLimpa(senhaLimpa));
     }
 }

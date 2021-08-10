@@ -1,4 +1,4 @@
-package br.com.zupacademy.mercadolivre.config;
+package br.com.zupacademy.mercadolivre.config.validacao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;

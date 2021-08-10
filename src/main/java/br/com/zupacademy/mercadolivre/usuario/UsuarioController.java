@@ -1,4 +1,4 @@
-package br.com.zupacademy.mercadolivre.cadastro;
+package br.com.zupacademy.mercadolivre.usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/cadastro")
-public class CadastroController {
+@RequestMapping("/cadastroUsuario")
+public class UsuarioController {
     @Autowired
-    CadastroRepository cadastroRepository;
+    UsuarioRepository usuarioRepository;
     @PostMapping
-    ResponseEntity insereCadastro(@RequestBody @Valid CadastroRequest cadastroRequest){
-        Cadastro novoCadastro = cadastroRequest.converte();
-        cadastroRepository.save(novoCadastro);
+    ResponseEntity insereCadastro(@RequestBody @Valid UsuarioRequest usuarioRequest){
+        Usuario novoUsuario = usuarioRequest.converte();
+        usuarioRepository.save(novoUsuario);
         return ResponseEntity.ok().build();
     }
 }

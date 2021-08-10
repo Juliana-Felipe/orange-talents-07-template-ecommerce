@@ -1,4 +1,4 @@
-package br.com.zupacademy.mercadolivre.config;
+package br.com.zupacademy.mercadolivre.config.validacao;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
