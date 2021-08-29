@@ -19,9 +19,8 @@ public class ErroDeAutenticacao {
 
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
     @ExceptionHandler(BadCredentialsException.class)
-    public String handle(BadCredentialsException exception) {
-      String message = exception.getMessage();
-    return "Dados de login não encontrados, tente novamente com dados válidos";
+    public String handle() {
+       return "Dados de login não encontrados, tente novamente com dados válidos";
     }
 }
 

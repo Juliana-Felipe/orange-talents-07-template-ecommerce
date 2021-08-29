@@ -39,6 +39,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/cadastroUsuario").permitAll()
                 .antMatchers(HttpMethod.POST, "/auth").permitAll()
+                .antMatchers(HttpMethod.POST, "/produtos").permitAll()
                 .anyRequest().authenticated()
                 .and().csrf().disable() // csrf é contra raquer, aqui é desabilitado pq não vai guardar sessão
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
